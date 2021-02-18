@@ -47,17 +47,11 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             
+            @role('admin')
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/admin') }}">
                 <i class="ni ni-shop text-primary"></i>
                 <span class="nav-link-text">Dashboards</span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/user') }}">
-                <i class="ni ni-shop text-primary"></i>
-                <span class="nav-link-text">Dashboards user</span>
               </a>
             </li>
             
@@ -119,12 +113,21 @@
               </div>
             </li>
 
+            @else
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/user') }}">
+                <i class="ni ni-shop text-primary"></i>
+                <span class="nav-link-text">Dashboards user</span>
+              </a>
+            </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/attendance_summary') }}">
                 <i class="fas fa-book text-primary"></i>
                 <span class="nav-link-text">Attendance Summary</span>
               </a>
             </li>
+            @endrole
         </ul>
         </div>
       </div>
@@ -284,7 +287,7 @@
               <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="./img/theme/iwantyou.jpg">
+                    <img alt="Image placeholder" src="{{ asset('uploads/profile/'.Auth::user()->avatar )}}">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
                     <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>

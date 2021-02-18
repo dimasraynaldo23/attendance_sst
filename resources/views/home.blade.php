@@ -6,14 +6,14 @@
 <style>
 .clockStyle {
   font-size: 35px;
-  margin: 0px 0px 300px 850px;
+  margin: 10px 0px 300px 850px;
   color: black;
   text-align: right;
 }
 </style>
 
 
-<div class="header pb-3 d-flex align-items-center" style="min-height: 535px; background-image: url(../../img/theme/iwantyou.jpg); background-size: cover; background-position: center top;">
+<div class="header pb-3 d-flex align-items-center" style="min-height: 535px; background-image: url(../../uploads/profile/{{ Auth::user()->avatar }}); background-size: cover; background-position: center top;">
     <!-- Mask -->
     <span class="mask bg-gradient-default opacity-8"></span>
     <!-- Header container -->
@@ -27,7 +27,7 @@
           </div>
         <div class="col-lg-7 col-md-10">
           <h1 class="display-2 text-white">Hello, <br> {{ Auth::user()->name }}.</h1>
-          <p class="text-white mt-0 mb-4">President Director</p>
+          <p class="text-white mt-0 mb-4">{{ Auth::user()->position }}</p>
           </div>
         </div>
       </div>

@@ -18,8 +18,19 @@ Route::get('/attendance_developer', 'AttendanceController@developer');
 Route::get('/user', 'UserController@index');
 // Route::get('/profile', 'ProfileController@index');
 Route::get('/biodata', 'ProfileController@biodata');
-Route::get('/edit_profile', 'ProfileController@edit');
+// Route::get('/edit_profile', 'ProfileController@edit');
 Route::get('/attendance_summary', 'SummaryController@index');
+
+//editcoba1
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('edit_profile', 'ProfileController@edit');
+
+    Route::post('/edit_profile_update', 'ProfileController@update'); //update
+});
+
+//editcoba2
+// Route::post('edit_profile', 'ProfileController@update');
+
 
 Auth::routes();
 
