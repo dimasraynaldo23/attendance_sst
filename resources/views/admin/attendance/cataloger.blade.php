@@ -50,7 +50,13 @@
         <thead class="thead-light">
           <tr>
             <th>Name</th>
-            <th>Permission</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
             <th></th>
           </tr>
         </thead>
@@ -60,7 +66,33 @@
               <img src="../../img/brand/sst.png" class="avatar rounded-circle mr-3">
               <b>{{ Auth::user()->name }}</b>
             </td>
-            <td>
+            <td class="table-user">
+              <img src="../../img/brand/sst.png" class="avatar rounded-circle mr-3">
+              <b>{{ Auth::user()->name }}</b>
+            </td>
+            <td class="table-user">
+              <img src="../../img/brand/sst.png" class="avatar rounded-circle mr-3">
+              <b>{{ Auth::user()->name }}</b>
+            </td>
+            <td class="table-user">
+              <img src="../../img/brand/sst.png" class="avatar rounded-circle mr-3">
+              <b>{{ Auth::user()->name }}</b>
+            </td>
+            <td class="table-user">
+              <img src="../../img/brand/sst.png" class="avatar rounded-circle mr-3">
+              <b>{{ Auth::user()->name }}</b>
+            </td>
+            <td class="table-user">
+              <img src="../../img/brand/sst.png" class="avatar rounded-circle mr-3">
+              <b>{{ Auth::user()->name }}</b>
+            </td>
+            <td class="table-user">
+              <img src="../../img/brand/sst.png" class="avatar rounded-circle mr-3">
+              <b>{{ Auth::user()->name }}</b>
+            </td>
+            <td class="table-user">
+              <img src="../../img/brand/sst.png" class="avatar rounded-circle mr-3">
+              <b>{{ Auth::user()->name }}</b>
             </td>
             <td class="table-actions">
               <a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit product">

@@ -37,7 +37,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
-                  <img src="../../img/theme/iwantyou.jpg" class="rounded-circle border-secondary">
+                  <img src="{{asset('uploads/profile/'.Auth::user()->avatar)}}" class="rounded-circle">
                 </div>
               </div>
             </div>

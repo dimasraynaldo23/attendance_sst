@@ -4,10 +4,16 @@
 Route::get('/', function () {
     return view('login');
 })->middleware('guest'); //middleware sebagai guest (agar tidak bisa langsung login)
+// user()->assignRole('admin'); /for role
+// });
+
 
 Route::get('/admin', 'AdminController@index');
 
 Route::get('/employee', 'EmployeeController@index');
+Route::get('/add_employee', 'EmployeeController@create');
+Route::post('/add_employee','EmployeeController@store')->name('addEmployee');
+
 Route::get('/location', 'LocationController@index');
 Route::get('/client', 'ClientController@index');
 Route::get('/project', 'ProjectController@index');

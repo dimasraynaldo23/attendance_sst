@@ -24,20 +24,20 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label class="form-control-label" for="input-name">Name</label>
-                        <input type="text" id="input-name" class="form-control" value="{{ Auth::user()->name }}">
+                        <input type="text" id="input-name" class="form-control" readonly="readonly" value="{{ Auth::user()->name }}">
                     </div>    
                 
                         <div class="form-group">
                         <label class="form-control-label" for="input-email">Email Address</label>
-                        <input type="text" id="input-email" class="form-control" value="{{ Auth::user()->email }}">
+                        <input type="text" id="input-email" class="form-control" readonly="readonly" value="{{ Auth::user()->email }}">
                         </div>
                         <div class="form-group">
                         <label class="form-control-label" for="input-position">Position</label>
-                        <input type="text" id="input-position" class="form-control" value="{{ Auth::user()->position }}" >
+                        <input type="text" id="input-position" class="form-control" readonly="readonly" value="{{ Auth::user()->position }}" >
                         </div>
                         <div class="form-group">
                             <label class="form-control-label" for="input-position">Address</label>
-                            <input type="text" id="input-position" class="form-control" value="{{ Auth::user()->address }}">
+                            <input type="text" id="input-position" class="form-control" readonly="readonly" value="{{ Auth::user()->address }}">
                         </div>
                 </div>
                 <div class="col-sm-6">

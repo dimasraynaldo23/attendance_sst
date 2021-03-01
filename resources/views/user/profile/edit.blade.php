@@ -8,6 +8,12 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
+                        @if (session('status'))
+                                <div class="alert alert-success text-center">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+                            
                         <div class="row align-items-center">
                             <div class="col-8">
                                 <h3 class="mb-0">Edit profile </h3>
@@ -85,24 +91,27 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <img class="rounded-circle" src="{{ asset('uploads/profile/'.Auth::user()->avatar )}}"/>
+                                    <img class="rounded-circle"
+                                        src="{{ asset('uploads/profile/' . Auth::user()->avatar) }}" />
                                 </div>
                                 <br>
                                 <div class="row justify-content-center">
-                                <div class="form-group">
-                                    <input type="file" class="form-control-file" name="avatar" id="AvatarFile" aria-describedby="fileHelp"
-                                    <small id="fileHelp" class="form-text- text-muted">Please a valid image file. Size of image should not be motre than 2MB</small>
-                                </div>
-                                </form>
-                                </div>  
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-sm btn-primary">Save profile</button>
-                                </div>
-                            </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file" name="avatar" id="AvatarFile"
+                                            aria-describedby="fileHelp" <small id="fileHelp"
+                                            class="form-text- text-muted">Please a valid image file. Size of image should
+                                        not be motre than 2MB</small>
+                                    </div>
                         </form>
                     </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-sm btn-primary">Save profile</button>
+                    </div>
                 </div>
+                </form>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 @endsection

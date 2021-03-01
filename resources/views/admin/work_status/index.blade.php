@@ -54,24 +54,19 @@
       <table class="table align-items-center table-flush">
         <thead class="thead-light">
           <tr>
-            <th>Author</th>
-            <th>Created at</th>
-            <th>Product</th>
+            <th>Daily work</th>
+            <th>Mandays</th>
+            <th>Permission</th>
+            <th>Reason</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="table-user">
-              <img src="../../assets/img/theme/team-1.jpg" class="avatar rounded-circle mr-3">
-              <b>John Michael</b>
-            </td>
-            <td>
-              <span class="text-muted">10/09/2018</span>
-            </td>
-            <td>
-              <a href="#!" class="font-weight-bold">Argon Dashboard PRO</a>
-            </td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
             <td class="table-actions">
               <a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit product">
                 <i class="fas fa-user-edit"></i>

@@ -5,7 +5,7 @@
 @section('container')
 
 {{-- header --}}
-<div class="header bg-primary pb-6">
+<div class="header bg-primary pb-2">
     <div class="container-fluid">
       <div class="header-body">
         <div class="row align-items-center py-4">
@@ -18,13 +18,90 @@
               </ol>
             </nav>
           </div>
-          <div class="col-lg-6 col-5 text-right">
-            <a href="#" class="btn btn-sm btn-neutral">New</a>
-            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Card stats -->
+<div class="container-fluid mt-4">
+<div class="row">
+  <div class="col-xl-3 col-md-6">
+    <div class="card card-stats">
+      <!-- Card body -->
+      <div class="card-body ml-2">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-2">Total Employee</h5>
+            <span class="h2 font-weight-bold">350,897</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-gradient-warning text-white rounded-circle shadow">
+              <i class="ni ni-single-02"></i>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
+  <div class="col-xl-3 col-md-6">
+    <div class="card card-stats">
+      <!-- Card body -->
+      <div class="card-body ml-2">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-2">On Time Percentase</h5>
+            <span class="h2 font-weight-bold">350,897</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
+              <i class="ni ni-chart-bar-32"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-md-6">
+    <div class="card card-stats">
+      <!-- Card body -->
+      <div class="card-body ml-2">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-4">On Time Today</h5>
+            <span class="h2 font-weight-bold">350,897</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+              <i class="fas fa-clock"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-xl-3 col-md-6">
+    <div class="card card-stats">
+      <!-- Card body -->
+      <div class="card-body ml-2">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-4">Late Today</h5>
+            <span class="h2 font-weight-bold">350,897</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+              <i class="fas fa-exclamation"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 @endsection

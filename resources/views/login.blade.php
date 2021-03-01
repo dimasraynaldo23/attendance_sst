@@ -112,12 +112,12 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                {{-- <div class="custom-control custom-control-alternative custom-checkbox">
                                     <input class="form-check-input" id=" customCheckLogin" name="remember"
                                         type="checkbox" {{ old('remember') ? 'checked' : '' }}>
                                     <label class="form-check-label" for=" remember"> {{ __('Remember Me') }}
                                     </label>
-                                </div>
+                                </div> --}}
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary my-3">Login</button>
                                 </div>

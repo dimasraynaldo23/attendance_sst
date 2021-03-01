@@ -20,8 +20,7 @@
           </nav>
         </div>
         <div class="col-lg-6 col-5 text-right">
-          <a href="#" class="btn btn-sm btn-neutral">New</a>
-          <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+          <a href="{{ url('add_employee') }}" class="btn btn-sm btn-neutral">Add Employee</a>
         </div>
       </div>
     </div>
@@ -50,21 +49,24 @@
         <thead class="thead-light">
           <tr>
             <th>Employee Name</th>
-            <th>Id Member</th>
+            <th>NIK</th>
+            <th>Email</th>
+            <th>Position</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
+          @foreach ($employees as $employee)
           <tr>
-            <td class="table-user">
-              <img src="../../img/theme/team-1.jpg" class="avatar rounded-circle mr-3">
-              <b>Akmal</b>
-            </td>
-            <td>
-              <span class="text-muted">1234567890</span>
-            </td>
-            <td class="table-actions">
-              <a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit product">
+              <td class="table-user">
+                <img src="{{ asset('uploads/employee/' . $employee->avatar) }}" class="avatar rounded-circle mr-3">
+                <b>{{ $employee->name}}</b>
+              </td>
+              <td>{{$employee->nik}}</td>
+              <td>{{$employee->email}}</td>
+              <td>{{$employee->position}}</td>
+              <td class="table-actions">
+              <a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit Employee">
                 <i class="fas fa-user-edit"></i>
               </a>
               <a href="#!" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete product">
@@ -72,7 +74,8 @@
               </a>
             </td>
           </tr>
-        </tbody>
+          @endforeach
+          </tbody>
       </table>
     </div>
   </div>
