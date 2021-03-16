@@ -10,14 +10,15 @@
   <title>@yield('title')</title>
   
   <!-- Favicon -->
-  <link rel="icon" href="./img/brand/sst.png" type="image/png">
+  <link rel="icon" href="../../../img/brand/sst.png" type="image/png">
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
-  <link rel="stylesheet" href="./vendor/nucleo/css/nucleo.css" type="text/css">
-  <link rel="stylesheet" href="./vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <link rel="stylesheet" href="../../../vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="../../../vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Argon CSS -->
-  <link rel="stylesheet" href="./css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="../../../css/argon.css?v=1.2.0" type="text/css">
+  
 </head>
 
 <body>
@@ -85,12 +86,25 @@
             
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/work_status') }}">
-                <i class="fas fa-tasks text-red"></i>
+                <i class="fas fa-signal text-red"></i>
                 <span class="nav-link-text">Work Status</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/approve') }}">
+                <i class="fas fa-tasks text-success"></i>
+                <span class="nav-link-text">Approve Attendance</span>
               </a>
             </li>
             
             <li class="nav-item">
+              <a class="nav-link" href="{{ url('/attendance') }}">
+                <i class="fas fa-user-clock text-pink"></i>
+                <span class="nav-link-text">Attendance</span>
+              </a>
+            </li>
+            {{-- <li class="nav-item">
               <a class="nav-link" href="#navbar-attendance" data-toggle="collapse" role="button" aria-expended="false" aria-controls="nav-attendance">
                 <i class="fas fa-user-clock text-pink"></i>
                 <span class="nav-link-text">Attendance</span>
@@ -111,7 +125,7 @@
                   </li>
                 </ul>
               </div>
-            </li>
+            </li> --}}
 
             @else
             <li class="nav-item">
@@ -332,15 +346,19 @@
   </div>
   <!-- Argon Scripts -->
   <!-- Core -->
-  <script src="./vendor/jquery/dist/jquery.min.js"></script>
-  <script src="./vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./vendor/js-cookie/js.cookie.js"></script>
-  <script src="./vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-  <script src="./vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <script src="../../../vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../../../vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../vendor/js-cookie/js.cookie.js"></script>
+  <script src="../../../vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="../../../vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <!-- Optional JS -->
+  <script src="../../../vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="../../../vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
-  <script src="./js/argon.js?v=1.2.0"></script>
+  <script src="../../../vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+  <script src="../../../js/argon.js?v=1.2.0"></script>
   <!-- Demo JS - remove this in your project -->
-  <script src="./js/demo.min.js"></script>
+  <script src="../../../js/demo.min.js"></script>
 
 </body>
 

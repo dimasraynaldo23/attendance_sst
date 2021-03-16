@@ -1,8 +1,9 @@
 @extends('layouts/main')
 
-@section('title', 'Profile')
+@section('title', 'Home')
 
 @section('container')
+
 <style>
 .clockStyle {
   font-size: 35px;

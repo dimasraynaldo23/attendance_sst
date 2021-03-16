@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 
 Route::get('/', function () {
     return view('login');
@@ -10,21 +11,29 @@ Route::get('/', function () {
 
 Route::get('/admin', 'AdminController@index');
 
+//employee
 Route::get('/employee', 'EmployeeController@index');
-Route::get('/add_employee', 'EmployeeController@create');
-Route::post('/add_employee','EmployeeController@store')->name('addEmployee');
+Route::get('/create_employee', 'EmployeeController@create');
+Route::post('/create_employee','EmployeeController@store')->name('addEmployee');
+Route::delete('/employee/{employee}', 'EmployeeController@destroy');
+Route::get('/employee/{employee}/edit', 'EmployeeController@edit');
+Route::patch('/employee/{employee}', 'EmployeeController@update');
 
+Route::get('/approve', 'ApproveController@index');
 Route::get('/location', 'LocationController@index');
 Route::get('/client', 'ClientController@index');
+
+// route project
 Route::get('/project', 'ProjectController@index');
+Route::post('/project', 'ProjectController@store');
+Route::delete('/project/{prj}', 'ProjectController@destroy');
+Route::patch('/project/{prj}', 'ProjectController@update');
+
 Route::get('/work_status', 'WorkStatusController@index');
-Route::get('/attendance_cataloger', 'AttendanceController@cataloger');
-Route::get('/attendance_developer', 'AttendanceController@developer');
+Route::get('/attendance', 'AttendanceController@index');
 
 Route::get('/user', 'UserController@index');
-// Route::get('/profile', 'ProfileController@index');
 Route::get('/biodata', 'ProfileController@biodata');
-// Route::get('/edit_profile', 'ProfileController@edit');
 Route::get('/attendance_summary', 'SummaryController@index');
 
 //editcoba1

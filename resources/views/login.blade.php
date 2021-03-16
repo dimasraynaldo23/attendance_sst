@@ -23,7 +23,7 @@
     <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
-                <h6 class="h2 text-white d-inline-block mb-0">SST</h6>
+                <h6 class="h2 text-white d-inline-block mb-0" >SST</h6>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
                 aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +78,7 @@
                 <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary border-0 mb-0">
                         <div class="text-muted text-center mt-5 mb-2">
-                            <large>Log in</large>
+                            <large >Log in</large>
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
                             <form class="user" method="POST" action="{{ route('login') }}"
