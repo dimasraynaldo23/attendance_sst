@@ -39,42 +39,57 @@
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('name') }}</strong>
                                                 </span>
-                                            @endif
+                                                @endif
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label"
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label"
                                                 for="email">{{ __('Email Address') }}</label>
-                                            <input type="text" id="input-email"
+                                                <input type="text" id="input-email"
                                                 class="form-control  {{ $errors->has('email') ? ' is-invalid' : '' }}"
                                                 name="email" placeholder="Email address"
                                                 value="{{ old('email', $user->email) }}" autocomplete="email" autofocus>
-                                            @if ($errors->has('email'))
+                                                @if ($errors->has('email'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label"
+                                                for="nik">{{ __('NIK') }}</label>
+                                            <input type="text" id="input-nik"
+                                                class="form-control  {{ $errors->has('nik') ? ' is-invalid' : '' }}"
+                                                name="nik" placeholder="NIK"
+                                                value="{{ old('email', $user->nik) }}" autocomplete="nik" autofocus>
+                                            @if ($errors->has('nik'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('nik') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="position">{{ __('Position') }}</label>
-                                            <input type="text" id="input-position"
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="position">{{ __('Position') }}</label>
+                                                <input type="text" id="input-position"
                                                 class="form-control {{ $errors->has('position') ? ' is-invalid' : '' }}"
                                                 name="position" placeholder="Position"
                                                 value="{{ old('position', $user->position) }}" autocomplete="position"
                                                 autofocus>
-                                            @if ($errors->has('position'))
+                                                @if ($errors->has('position'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('position') }}</strong>
-                                                </span>
+                                            </span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-control-label" for="address">{{ __('Address') }}</label>
                                             <input type="text" id="input-position"

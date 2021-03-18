@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-@section('title', 'Attendance Table')
+@section('title', 'Attendance List Table')
 
 @section('container')
 
@@ -43,7 +43,7 @@
                                                         <label class="form-control-label" for="employeeName">Employee
                                                             name</label>
                                                         <select class="form-control small" id="exampleFormControlSelect1"
-                                                            name="position">
+                                                            name="employee">
                                                             @foreach ($employees as $key => $value)
                                                                 <option value="{{ $key }}"
                                                                     {{ $key == $id ? 'selected' : '' }}>
@@ -54,34 +54,36 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label" for="fromDate">From date</label>
-                                                        <div class="form-group">
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text"><i
-                                                                            class="ni ni-calendar-grid-58"></i></span>
+                                                            <div class="form-group">
+                                                                <label class="form-control-label" for="fromDate">From
+                                                                    date</label>
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text"><i
+                                                                                    class="ni ni-calendar-grid-58"></i></span>
+                                                                        </div>
+                                                                        <input class="form-control datepicker"
+                                                                            placeholder="Select date" type="text">
+                                                                    </div>
                                                                 </div>
-                                                                <input class="form-control datepicker"
-                                                                    placeholder="Select date" type="text">
                                                             </div>
-                                                        </div>
-                                                    </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label" for="toDate">To date</label>
-                                                        <div class="form-group">
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text"><i
-                                                                            class="ni ni-calendar-grid-58"></i></span>
+                                                            <div class="form-group">
+                                                                <label class="form-control-label" for="toDate">To
+                                                                    date</label>
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text"><i
+                                                                                    class="ni ni-calendar-grid-58"></i></span>
+                                                                        </div>
+                                                                        <input class="form-control datepicker"
+                                                                            placeholder="Select date" type="text">
+                                                                    </div>
                                                                 </div>
-                                                                <input class="form-control datepicker"
-                                                                    placeholder="Select date" type="text">
                                                             </div>
-                                                        </div>
-                                                    </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -132,19 +134,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($attendances as $attendance)
                                     <tr class="text-center">
-                                        <td>{{ $attendance->id_attendance }}</td>
-                                        <td>{{ $attendance->date }}</td>
-                                        <td>{{ $attendance->employee }}</td>
-                                        <td>{{ $attendance->position }}</td>
-                                        <td class="text-center">{{ $attendance->workingdays }}</td>
-                                        <td>{{ $attendance->mandays }}</td>
-                                        <td>{{ $attendance->project }}</td>
-                                        <td>{{ $attendance->note }}</td>
-                                        <td>approve/reject</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-center"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
-                                @endforeach
                             </tbody>
                         </table>
                     </div>

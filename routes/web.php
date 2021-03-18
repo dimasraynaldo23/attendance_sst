@@ -30,9 +30,14 @@ Route::delete('/project/{prj}', 'ProjectController@destroy');
 Route::patch('/project/{prj}', 'ProjectController@update');
 
 Route::get('/work_status', 'WorkStatusController@index');
-Route::get('/attendance', 'AttendanceController@index');
+Route::get('/attendance_report', 'AttendanceReportController@index');
 
-Route::get('/user', 'UserController@index');
+// route Attendance User
+Route::get('/attendance', 'AttendanceController@index');
+Route::post('/attendance_absent', 'AttendanceController@storeAbsent');
+Route::post('/attendance_present', 'AttendanceController@storePresent');
+
+
 Route::get('/biodata', 'ProfileController@biodata');
 Route::get('/attendance_summary', 'SummaryController@index');
 

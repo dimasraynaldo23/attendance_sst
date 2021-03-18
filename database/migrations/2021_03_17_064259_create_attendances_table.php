@@ -14,15 +14,11 @@ class CreateAttendancesTable extends Migration
     public function up()
     {
         Schema::create('attendances', function (Blueprint $table) {
-            $table->increments('id_attendance');
-            $table->string('employee');
-            $table->string('position');
-            $table->string('project');
-            $table->dateTime('date');
-            $table->string('workingdays');
-            $table->string('mandays');
-            $table->string('note')->nullable();
-            $table->string('approve');
+            $table->increments('id');
+            $table->char('nik');
+            $table->string('present');
+            $table->string('absent');
+            $table->string('note');
             $table->timestamps();
         });
     }

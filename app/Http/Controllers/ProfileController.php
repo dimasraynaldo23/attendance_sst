@@ -33,6 +33,7 @@ class ProfileController extends Controller
         $user = User::findOrFail($user_id);
 
         $user->name = $request->input('name');
+        $user->nik = $request->input('nik');
         $user->email = $request->input('email');
         $user->position = $request->input('position');
         $user->address = $request->input('address');
@@ -51,7 +52,7 @@ class ProfileController extends Controller
         }
 
         $user->update();
-        return redirect()->back()->with('status','Profile updated!');
+        return redirect('biodata')->with('status','Profile updated!');
 
     }   
 

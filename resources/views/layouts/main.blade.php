@@ -99,37 +99,14 @@
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/attendance') }}">
+              <a class="nav-link" href="{{ url('/attendance_report') }}">
                 <i class="fas fa-user-clock text-pink"></i>
                 <span class="nav-link-text">Attendance</span>
               </a>
             </li>
-            {{-- <li class="nav-item">
-              <a class="nav-link" href="#navbar-attendance" data-toggle="collapse" role="button" aria-expended="false" aria-controls="nav-attendance">
-                <i class="fas fa-user-clock text-pink"></i>
-                <span class="nav-link-text">Attendance</span>
-              </a>
-              <div class="collapse" id="navbar-attendance">
-                <ul class="nav nav-sm flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/attendance_cataloger') }}">
-                      <span class="sidenav-mini-icon"> C </span>
-                      <span class="sidenav-normal"> Cataloger </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/attendance_developer') }}">
-                      <span class="sidenav-mini-icon"> D </span>
-                      <span class="sidenav-normal"> Developer </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li> --}}
-
             @else
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/user') }}">
+              <a class="nav-link" href="{{ url('/attendance') }}">
                 <i class="ni ni-shop text-primary"></i>
                 <span class="nav-link-text">Dashboards user</span>
               </a>
