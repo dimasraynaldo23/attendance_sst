@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Employee; //menghungkan ke model
 use App\Position;
 use Illuminate\Support\Facades\File;
@@ -12,8 +13,10 @@ class EmployeeController extends Controller
     public function index()
     {
         // $employee = DB::table('employees')->get();
-        $employees = Employee::all();
-        return view('admin.employee.index', ['employees' => $employees]); //nama variabel dan data, karena sama bisa dijadikan compact('employees')  
+        // $employees = Employee::all();
+        // return view('admin.employee.index', ['employees' => $employees]); //nama variabel dan data, karena sama bisa dijadikan compact('employees')  
+        $users = User::all();
+        return view('admin.employee.index',['users' => $users]);
     }
 
     public function create(Employee $employee, Position $position) 
@@ -102,9 +105,9 @@ class EmployeeController extends Controller
         return redirect('/employee')->with('status','Employee data updated!');
     }
 
-    public function destroy(Employee $employee)
+    public function destroy(User $user)
     {
-        Employee::destroy($employee->id);
+        User::destroy($user->id);
         return redirect('/employee')->with('status','Employee data has been successfully deleted!');
     }
 }

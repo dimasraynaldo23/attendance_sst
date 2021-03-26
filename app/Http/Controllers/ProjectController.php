@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\StatusProject;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(StatusProject $statusProject)
     {
         $projects = Project::all();
-        return view('admin.project.index', ['projects'=> $projects]);
+        $statusProjects = StatusProject::all();
+        $statusProjects = StatusProject::pluck('status', 'id_status_project');
+        $id_status_project = 2;
+        return view('admin.project.index', compact('projects', 'id_status_project', 'statusProjects'));
     }
 
     // public function create()
@@ -43,6 +47,7 @@ class ProjectController extends Controller
 
         $project->code = $request->input('code');
         $project->name = $request->input('name');
+        $project->status = $request->input('status');
         $project->update();
         
         return redirect('/project')->with('status','Project data has been updated!');

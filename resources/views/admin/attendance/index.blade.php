@@ -44,7 +44,7 @@
                                                             name</label>
                                                         <select class="form-control small" id="exampleFormControlSelect1"
                                                             name="employee">
-                                                            @foreach ($employees as $key => $value)
+                                                            @foreach ($users as $key => $value)
                                                                 <option value="{{ $key }}"
                                                                     {{ $key == $id ? 'selected' : '' }}>
                                                                     {{ $value }}
@@ -125,26 +125,26 @@
                                     <th>No.</th>
                                     <th>Date</th>
                                     <th>Employee</th>
-                                    <th>Position</th>
                                     <th>Workingdays</th>
-                                    <th>Mandays</th>
-                                    <th>Project</th>
+                                    <th>Absent</th>
+                                    <th>Project_code</th>
                                     <th>Note</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr class="text-center">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td class="text-center"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                @foreach ($attendances as $attendance)
+                                <tr class="text-center">
+                                    <td>{{ $attendance->id}}</td>
+                                    <td>{{ $attendance->created_at}}</td>
+                                    <td>{{ $attendance->nik }}</td>
+                                    <td class="text-center">{{ $attendance->present }}</td>
+                                    <td>{{ $attendance->absent }}</td>
+                                    <td>{{ $attendance->project_code }}</td>
+                                    <td>{{ $attendance->note}}</td>
+                                    <td>waiting</td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

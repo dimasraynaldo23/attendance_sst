@@ -84,24 +84,24 @@
               </a>
             </li>
             
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link" href="{{ url('/work_status') }}">
                 <i class="fas fa-signal text-red"></i>
                 <span class="nav-link-text">Work Status</span>
               </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/approve') }}">
                 <i class="fas fa-tasks text-success"></i>
-                <span class="nav-link-text">Approve Attendance</span>
+                <span class="nav-link-text">Approval</span>
               </a>
             </li>
             
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/attendance_report') }}">
                 <i class="fas fa-user-clock text-pink"></i>
-                <span class="nav-link-text">Attendance</span>
+                <span class="nav-link-text">Report</span>
               </a>
             </li>
             @else

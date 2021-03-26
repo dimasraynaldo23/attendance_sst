@@ -102,7 +102,7 @@
                                 <div class="form-group mb-2">
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-signature"></i></span>
+                                            <span class="input-group-text"><i class="fas fa-address-card"></i></span>
                                         </div>
                                     <input type="text" id="input-nik" class="form-control  @if ($errors->has('nik')) is-invalid @endif"
                                     name="nik" placeholder="NIK" value="{{ old('nik') }}" autocomplete="nik"

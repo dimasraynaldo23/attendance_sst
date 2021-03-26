@@ -62,19 +62,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($users as $user)
+                                @foreach ($employees as $employee)
                                     <tr>
                                         <td class="table-user">
-                                            <img src="{{ asset('uploads/profile/' . $user->avatar) }}"
+                                            <img src="{{ asset('uploads/employee/' . $employee->avatar) }}"
                                                 class="avatar rounded-circle mr-3">
-                                            <b>{{ $user->name }}</b>
+                                            <b>{{ $employee->name }}</b>
                                         </td>
-                                        <td>{{ $user->nik }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->position }}</td>
+                                        <td>{{ $employee->nik }}</td>
+                                        <td>{{ $employee->email }}</td>
+                                        <td>{{ $employee->position }}</td>
                                         <td class="table-actions">
-                                            {{-- <a href="/employee/{{ $user->id }}/edit" class="btn btn-primary">Edit</a> --}}
-                                            <form action="/employee/{{ $user->id }}" method="post" class="d-inline">
+                                            <a href="/employee/{{ $employee->id }}/edit" class="btn btn-primary">Edit</a>
+                                            <form action="/employee/{{ $employee->id }}" method="post" class="d-inline">
                                                 {{ method_field('delete') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger">Delete</button>

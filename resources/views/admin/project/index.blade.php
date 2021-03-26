@@ -141,26 +141,27 @@
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
-                                <tr>
+                                <tr class="text-center">
                                     <th>No.</th>
                                     <th>Code</th>
                                     <th>Project</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th style="width:10px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($projects as $prj)
-                                    <tr>
-                                        <td>{{ $prj->id_project }}</td>
-                                        <td>{{ $prj->code }}</td>
-                                        <td>{{ $prj->name }}</td>
-                                        <td>{{ $prj->status }}</td>
+                                @foreach ($projects as $project)
+                                    <tr class="text-center">
+                                        <td>{{ $project->id_project }}</td>
+                                        <td>{{ $project->code }}</td>
+                                        <td>{{ $project->name }}</td>
+                                        <td>{{ $project->status }}</td>
                                         <td class="table-actions">
-                                            <a type="button" class="table-action" data-toggle="modal"
+                                            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editProjectModal">Edit</button>
+                                            {{-- <a type="button" class="table-action" data-toggle="modal"
                                                 data-target="#editProjectModal">
                                                 <i class="fas fa-user-edit"></i>
-                                            </a>
+                                            </a> --}}
                                             
                                             {{-- modal edit --}}
                                             <div class="modal fade" id="editProjectModal" tabindex="-1" role="dialog"
@@ -175,7 +176,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="post" action="/project/{{ $prj->id_project }}"
+                                                            <form method="post" action="/project/{{ $project->id_project }}"
                                                                 enctype="multipart/form-data">
                                                                 {{ method_field('patch') }}
                                                                 {{ csrf_field() }}
@@ -187,7 +188,7 @@
                                                                             <input type="text" id="input-code"
                                                                                 class="form-control {{ $errors->has('code') ? 'is-invalid' : '' }}"
                                                                                 name="code" placeholder="Project code.."
-                                                                                value="{{ old('name', $prj->code) }}"
+                                                                                value="{{ old('name', $project->code) }}"
                                                                                 autocomplete="code" autofocus>
                                                                             @if ($errors->has('code'))
                                                                                 <span class="invalid-feedback" role="alert">
@@ -201,13 +202,26 @@
                                                                             <input type="text" id="input-name"
                                                                                 class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
                                                                                 name="name" placeholder="Project name.."
-                                                                                value="{{ old('name', $prj->name) }}"
+                                                                                value="{{ old('name', $project->name) }}"
                                                                                 autocomplete="name" autofocus>
                                                                             @if ($errors->has('name'))
                                                                                 <span class="invalid-feedback" role="alert">
                                                                                     <strong>{{ $errors->first('name') }}</strong>
                                                                                 </span>
                                                                             @endif
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="name"
+                                                                                class="form-control-label">{{ __('Status') }}</label>
+                                                                                <select class="form-control small" id="statusFormControlSelect"
+                                                                                name="status">
+                                                                                @foreach ($statusProjects as $key => $value)
+                                                                                <option value="{{ $key }}"
+                                                                                    {{ $key == $id_status_project ? 'selected' : '' }}>
+                                                                                    {{ $value }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                            </select>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -222,11 +236,11 @@
                                                 </div>
                                             </div>
 
-                                            <form action="/project/{{ $prj->id_project }}" method="post"
+                                            <form action="/project/{{ $project->id_project }}" method="post"
                                                 class="d-inline">
                                                 {{ method_field('delete') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="badge bg-danger">Delete</button>
+                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
