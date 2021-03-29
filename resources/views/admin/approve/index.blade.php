@@ -56,7 +56,7 @@
                             <td>{{ date('F',strtotime($attendance->date)) }}</td>
                             <td>{{ date('d',strtotime($attendance->date)) }}</td>
                             <td class="table-actions">
-                              <a type="button" href="/attendance_list/{{ $attendance->date}}" class="btn btn-sm btn-success"> 
+                              <a type="button" href="/attendance_list/{{ $attendance->date}}" class="btn btn-sm btn-primary"> 
                                 Approval
                               </a>
                             </td>

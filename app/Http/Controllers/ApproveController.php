@@ -13,7 +13,72 @@ class ApproveController extends Controller
 {
     public function index(Attendance $attendance)
     {
-        // $attendances = Attendance::all()
+       
+        $attendances = Attendance::where('created_at', '>=' , Carbon::now()->subDays(31))
+            ->groupBy('date')
+            ->orderBy('date','desc') 
+            ->get(array(
+                DB::raw('Date(created_at) as date')
+            ));
+            
+            return view('admin.approve.index', compact('attendances'));
+        }
+        
+        public function attendanceList($date)
+        {
+            // $mandays = Mandays::all();
+            // $attendance_date = $attendance->created_at;
+            // $attendances = Attendance::query()->where('created_at','=',$date);
+
+        $attendances = DB::table('attendances')
+                       ->whereDate('attendances.created_at', $date)
+                       ->get();
+
+        return view('admin.approve.attendanceList', compact('attendances'));
+        }
+        
+        public static function mandays($nik, $date)
+        {
+            $mandays = DB::table('mandays')
+                // ->join('attendances','mandays.created_at','=','attendances.created_at')
+                // ->select('attendances.note','mandays.project_code','mandays.start_time','mandays.end_time','mandays.nik','mandays.created_at')
+            ->where('nik', $nik)
+            ->whereDate('created_at', date('Y-m-d', strtotime($date)))
+            ->whereNotNull('start_time')
+            ->get();
+            
+            // dd($mandays);
+            return $mandays;
+       }
+
+       public function approve(Request $request, Attendance $attendance)
+       {
+           $attendance_id = $attendance->id;
+           $attendance = Attendance::findOrFail($attendance_id);
+
+           $attendance->approval_note = '-';
+           $attendance->status_approval = 'approve';
+
+           $attendance->update();
+           return redirect()->back();
+       }
+
+
+        public function reject(Request $request, Attendance $attendance)
+        {
+            $attendance_id = $attendance->id;
+            $attendance = Attendance::findOrFail($attendance_id);
+
+            $attendance->approval_note = $request->input('note_reject');
+            $attendance->status_approval = 'reject';
+
+            $attendance->update();
+            return redirect()->back();
+
+        }
+
+}
+ // $attendances = Attendance::all()
 
         // $attendances = Attendance::WhereBetween('created_at', [now(), now()->subDays(7)])
         //     ->orderBy('created_at')
@@ -58,51 +123,26 @@ class ApproveController extends Controller
         // ->whereMonth('created_at', now()->month)->get();
         // $attendances = Attendance::whereDate('created_at', now()->subDays(30))->get();
 
-        $attendances = Attendance::where('created_at', '>=' , Carbon::now()->subDays(31))
-            ->groupBy('date')
-            ->orderBy('date','desc') 
-            ->get(array(
-                DB::raw('Date(created_at) as date')
-            ));
-            
-            return view('admin.approve.index', compact('attendances'));
-        }
-        
-        public function attendanceList($date)
-        {
-            // $mandays = Mandays::all();
-            // $attendance_date = $attendance->created_at;
-            // $attendances = Attendance::query()->where('created_at','=',$date);
+            //     public static function mandays($nik, $date)
+    //     {
+    //         $mandays = DB::table('mandays')
+    //             // ->join('attendances','mandays.created_at','=','attendances.created_at')
+    //             // ->select('mandays.nik','attendances.created_at')
+    //         ->where('mandays.nik', $nik)
+    //         // ->where('attendances.note', $note )
+    //         ->whereDate('attendances.created_at', date('Y-m-d', strtotime($date)))
+    //         ->whereNotNull('start_time')
+    //         ->get();
+    //         // dd($mandays);
+    //         return $mandays;
+    //    }
 
-        $attendances = DB::table('attendances')
-                       ->whereDate('attendances.created_at', $date)
-                       ->get();
-
-        return view('admin.approve.attendanceList', compact('attendances'));
-        }
-        
-        public static function mandays($nik, $date)
-        {
-            $mandays = DB::table('mandays')
-                // ->join('attendances','mandays.created_at','=','attendances.created_at')
-                // ->select('mandays.start_time','mandays.project_code','mandays.end_time')
-            ->where('nik', $nik)
-            ->whereDate('created_at', date('Y-m-d', strtotime($date)))
-            ->whereNotNull('start_time')
-            ->get();
-            
-            return $mandays;
-       }
-
-    //    public static function reject($nik)
+    //    public static function reject($nik, $note)
     //    {
     //     $attendances = DB::table('attendances')
     //         // ->join('attendances','mandays.created_at','=','attendances.created_at')
-    //         // ->select('mandays.start_time','mandays.project_code','mandays.end_time')
-    //         ->where('note')
-    //         // ->whereDate('created_at', date('Y-m-d', strtotime($date)))
-    //         // ->whereNotNull('start_time')
+    //         ->select('*')
+    //         ->where('nik',$nik)
     //         ->get();
     //        return $attendances;
     //    }
-}

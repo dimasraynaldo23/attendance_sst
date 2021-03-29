@@ -124,8 +124,8 @@
                                 <tr class="text-center">
                                     <th>No.</th>
                                     <th>Date</th>
-                                    <th>Employee</th>
-                                    <th>Workingdays</th>
+                                    <th>NIK Employee</th>
+                                    <th>Present</th>
                                     <th>Absent</th>
                                     <th>Project_code</th>
                                     <th>Note</th>
@@ -134,16 +134,22 @@
                             </thead>
                             <tbody>
                                 @foreach ($attendances as $attendance)
-                                <tr class="text-center">
-                                    <td>{{ $attendance->id}}</td>
-                                    <td>{{ $attendance->created_at}}</td>
-                                    <td>{{ $attendance->nik }}</td>
-                                    <td class="text-center">{{ $attendance->present }}</td>
-                                    <td>{{ $attendance->absent }}</td>
-                                    <td>{{ $attendance->project_code }}</td>
-                                    <td>{{ $attendance->note}}</td>
-                                    <td>waiting</td>
-                                </tr>
+                                    <tr class="text-center">
+                                        <td>{{ $attendance->id }}</td>
+                                        <td>{{ $attendance->created_at }}</td>
+                                        <td>{{ $attendance->nik }}</td>
+                                        <td class="text-center">{{ $attendance->present }}</td>
+                                        <td>{{ $attendance->absent }}</td>
+                                        <td>{{ $attendance->project_code }}</td>
+                                        <td>{{ $attendance->approval_note }}</td>
+                                        <td @if ($attendance->status_approval == 'approve') 
+                                                    class="badge badge-pill badge-success"
+                                        @elseif($attendance->status_approval == 'reject')
+                                                    class="badge badge-pill badge-danger" 
+                                        @else
+                                                    class="badge badge-pill badge-primary" 
+                                        @endif>{{ $attendance->status_approval }}</td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

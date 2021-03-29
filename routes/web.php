@@ -23,6 +23,9 @@ Route::patch('/employee/{employee}', 'EmployeeController@update');
 // route approval
 Route::get('/approve', 'ApproveController@index');
 Route::get('/attendance_list/{attendances}', 'ApproveController@attendanceList');
+Route::patch('/attendance_list/{attendance}', 'ApproveController@approve')->name('approve');
+Route::post('/attendance_list/{attendance}', 'ApproveController@reject')->name('reject');
+
 
 
 Route::get('/location', 'LocationController@index');

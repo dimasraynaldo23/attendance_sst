@@ -50,7 +50,6 @@ use App\Http\Controllers\ApproveController;
                                     <th>Present</th>
                                     <th>Absent</th>
                                     <th>Date</th>
-                                    <th>Status</th>
                                     <th style="width:10px">Action</th>
                                 </tr>
                             </thead>
@@ -61,18 +60,17 @@ use App\Http\Controllers\ApproveController;
                                         <td>{{ $attendance->present }}</td>
                                         <td>{{ $attendance->absent }}</td>
                                         <td>{{ $attendance->created_at }}</td>
-                                        <td>{{ $attendance->status_approval }}</td>
                                         <td class="table-actions">
-                                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal"
+                                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                                 data-target="#approvalModal{{$attendance->nik}}">
-                                                Approve
+                                                Approval
                                             </button>
-                                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                            {{-- <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
                                                 data-target="#rejectModal{{$attendance->nik}}">
                                                 Reject
-                                            </button>
+                                            </button> --}}
                                             
-                                {{-- modal present --}}
+                                {{-- modal approval --}}
                             <div class="modal fade" id="approvalModal{{$attendance->nik}}" tabindex="-1" role="dialog"
                                 aria-labelledby="approvalModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -84,9 +82,8 @@ use App\Http\Controllers\ApproveController;
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="/attendance_list/{{$attendance->id}}" method="post" enctype="multipart/form-data">
+                                            <form action="" method="" enctype="multipart/form-data">
                                                 {{ csrf_field() }}
-                                                {{ method_field('patch') }}
                                                 <div class="row">
                                                     <div class="col text-left">
                                                         <label class="form-control-label"
@@ -139,9 +136,44 @@ use App\Http\Controllers\ApproveController;
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
+                                                <button type="button" class="btn btn-sm btn-success" data-toggle="modal"
+                                                data-target="#approveModal">
+                                                Approve
+                                            </button>
+                                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                                data-target="#rejectModal">
+                                                Reject
+                                            </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- modal Approve --}}
+                            <div class="modal fade" id="approveModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Approve</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <label class="form-control-label"
+                                                        for="employeeName">Note :</label>
+                                            <form method="post" action="/attendance_list/{attendances}/approve" enctype="multipart/form-data">
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                    <textarea  name="note_approve" class="form-control" id="note" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Approve</button>
+                                                <button type="submit" class="btn btn-success">Approve</button>
                                             </div>
                                         </form>
                                     </div>
@@ -149,7 +181,7 @@ use App\Http\Controllers\ApproveController;
                             </div>
 
                             {{-- modal Reject --}}
-                            <div class="modal fade" id="rejectModal{{$attendance->nik}}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
@@ -163,20 +195,19 @@ use App\Http\Controllers\ApproveController;
                                         <div class="modal-body">
                                             <label class="form-control-label"
                                                         for="employeeName">Note :</label>
-                                            <form method="post" action="/attendance_list/{{ $attendance->id }}" enctype="multipart/form-data">
-                                                {{ csrf_field() }}
+                                            <form>
                                                 <div class="form-group">
-                                                    <textarea class="form-control" name="note_reject" id="note" rows="3"></textarea>
+                                                    <textarea  class="form-control" id="note" rows="3"></textarea>
                                                 </div>
-                                            </div>
-                                            {{-- @endforeach --}}
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Reject</button>
-                                            </div>
-                                        </form>
+                                            </form>
                                         </div>
+                                        {{-- @endforeach --}}
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger">Reject</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             </td>
@@ -190,3 +221,4 @@ use App\Http\Controllers\ApproveController;
         </div>
     </div>
 @endsection
+
