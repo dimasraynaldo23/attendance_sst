@@ -142,7 +142,6 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr class="text-center">
-                                    <th>No.</th>
                                     <th>Code</th>
                                     <th>Project</th>
                                     <th>Status</th>
@@ -150,21 +149,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($projects as $project)
+                                @foreach ($data as $project)
                                     <tr class="text-center">
-                                        <td>{{ $project->id_project }}</td>
                                         <td>{{ $project->code }}</td>
                                         <td>{{ $project->name }}</td>
                                         <td>{{ $project->status }}</td>
                                         <td class="table-actions">
-                                            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editProjectModal">Edit</button>
+                                            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editProjectModal{{$project->id_project}}">Edit</button>
                                             {{-- <a type="button" class="table-action" data-toggle="modal"
                                                 data-target="#editProjectModal">
                                                 <i class="fas fa-user-edit"></i>
                                             </a> --}}
                                             
                                             {{-- modal edit --}}
-                                            <div class="modal fade" id="editProjectModal" tabindex="-1" role="dialog"
+                                            <div class="modal fade" id="editProjectModal{{$project->id_project}}" tabindex="-1" role="dialog"
                                                 aria-labelledby="editModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
@@ -211,13 +209,21 @@
                                                                             @endif
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label for="name"
+                                                                            <label for="status_project_id"
                                                                                 class="form-control-label">{{ __('Status') }}</label>
                                                                                 <select class="form-control small" id="statusFormControlSelect"
-                                                                                name="status">
+                                                                                name="status_project_id">
+                                                                                {{-- @foreach ($statusProjects as $status)
+                                                                                <option value="{{ $status->id_status_project }}">
+                                                                                    @if ($status->id_status_project == $project->id_project)
+                                                                                        selected
+                                                                                    @endif>
+                                                                                    {{ $status->status}}
+                                                                                </option>
+                                                                                @endforeach --}}
                                                                                 @foreach ($statusProjects as $key => $value)
                                                                                 <option value="{{ $key }}"
-                                                                                    {{ $key == $id_status_project ? 'selected' : '' }}>
+                                                                                    {{ $key == $id_status_project ? 'selected' : '' }}>    
                                                                                     {{ $value }}
                                                                                 </option>
                                                                             @endforeach
@@ -240,7 +246,7 @@
                                                 class="d-inline">
                                                 {{ method_field('delete') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-sm btn-danger deleteProject">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -252,4 +258,14 @@
             </div>
         </div>
     </div>
+
 @endsection
+    <script>
+        $(document).ready(function(){
+
+            $('.deleteProject').click(function(e){
+                e.preventDefault();
+                alert('heloooo!');
+            });
+        });
+    </script>

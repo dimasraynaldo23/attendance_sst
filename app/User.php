@@ -10,8 +10,8 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles;
     use SoftDeletes;
+    use Notifiable, HasRoles;
     
     protected $fillable = [
         'name', 'nik', 'email', 'password', 'position', 'address', 'avatar', 

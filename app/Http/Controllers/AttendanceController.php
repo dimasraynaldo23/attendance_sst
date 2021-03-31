@@ -32,7 +32,7 @@ class AttendanceController extends Controller
         
         $attendance->save();
         
-        return redirect()->back()->with('status','Absent saved!');
+        return redirect()->back()->with('success','Absent saved!');
     }
     
     public function storePresent(Request $request)
@@ -45,7 +45,7 @@ class AttendanceController extends Controller
         $attendance->save();
 
 
-        for ($i=0; $i < count($request->project_code); $i++) { 
+        for ($i=0; $i < count((array)$request->project_code); $i++) { 
             $mandays = new Mandays();
             $mandays->nik = Auth::user()->nik;
             $mandays->project_code = $request->project_code[$i];
@@ -54,7 +54,7 @@ class AttendanceController extends Controller
             $mandays->save();
         };
         
-        return redirect()->back()->with('status','Present saved!');
+        return redirect()->back()->with('success','Present saved!');
 
     }
 }

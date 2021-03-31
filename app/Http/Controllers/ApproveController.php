@@ -55,12 +55,13 @@ class ApproveController extends Controller
        {
            $attendance_id = $attendance->id;
            $attendance = Attendance::findOrFail($attendance_id);
+        //    $attendance->delete();
 
            $attendance->approval_note = '-';
            $attendance->status_approval = 'approve';
 
            $attendance->update();
-           return redirect()->back();
+           return redirect()->back()->with('success','Approved!');
        }
 
 
@@ -73,7 +74,7 @@ class ApproveController extends Controller
             $attendance->status_approval = 'reject';
 
             $attendance->update();
-            return redirect()->back();
+            return redirect()->back()->with('success','Rejected!');
 
         }
 

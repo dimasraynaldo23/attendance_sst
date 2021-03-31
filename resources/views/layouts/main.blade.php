@@ -336,7 +336,9 @@
   <script src="../../../js/argon.js?v=1.2.0"></script>
   <!-- Demo JS - remove this in your project -->
   <script src="../../../js/demo.min.js"></script>
-
+  {{-- sweetAlert --}}
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  @include('sweetalert::alert')
 </body>
 
 </html>

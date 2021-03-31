@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 Route::get('/', function () {
     return view('login');
@@ -15,7 +17,7 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/employee', 'EmployeeController@index');
 Route::get('/create_employee', 'EmployeeController@create');
 Route::post('/create_employee','EmployeeController@store')->name('addEmployee');
-Route::delete('/employee/{employee}', 'EmployeeController@destroy');
+// Route::delete('/employee/{employee}', 'EmployeeController@destroy');
 Route::delete('/employee/{user}', 'EmployeeController@destroy'); //user
 Route::get('/employee/{employee}/edit', 'EmployeeController@edit');
 Route::patch('/employee/{employee}', 'EmployeeController@update');
@@ -25,8 +27,6 @@ Route::get('/approve', 'ApproveController@index');
 Route::get('/attendance_list/{attendances}', 'ApproveController@attendanceList');
 Route::patch('/attendance_list/{attendance}', 'ApproveController@approve')->name('approve');
 Route::post('/attendance_list/{attendance}', 'ApproveController@reject')->name('reject');
-
-
 
 Route::get('/location', 'LocationController@index');
 Route::get('/client', 'ClientController@index');

@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id_project');
             $table->string('code');
             $table->string('name');
-            $table->string('status')->default('process');
+            $table->string('status')->default('1');
             $table->timestamps();
         });
     }

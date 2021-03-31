@@ -7,6 +7,8 @@ use App\User;
 use App\Employee; //menghungkan ke model
 use App\Position;
 use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class EmployeeController extends Controller
 {
@@ -58,7 +60,7 @@ class EmployeeController extends Controller
 
             $employee->save();
 
-            return redirect('/employee')->with('status','Employee data has been successfully added!');
+            return redirect('/employee')->with('success', 'Task Created Successfully!');
     }
 
     public function edit(Employee $employee)
@@ -108,6 +110,7 @@ class EmployeeController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
-        return redirect('/employee')->with('status','Employee data has been successfully deleted!');
+        return redirect('/employee')->with('success','Employee data has been successfully deleted!');
     }
 }
+

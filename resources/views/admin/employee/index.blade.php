@@ -24,11 +24,11 @@
                         <a href="{{ url('create_employee') }}" class="btn btn-sm btn-neutral">Add Employee</a>
                     </div>
                 </div>
-                @if (session('status'))
+                {{-- @if (session('status'))
                     <div class="alert alert-success col-4">
                         {{ session('status') }}
                     </div>
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>

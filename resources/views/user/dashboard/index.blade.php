@@ -94,6 +94,7 @@
                                                                 <tbody>
                                                                     @foreach ($projects as $project)
                                                                         <tr class="text-center">
+                                                                            @if ($project->status_project_id == 1)
                                                                             <td>
                                                                                 <input type="hidden" name="project_code[]" value="{{ $project->code }}">
                                                                                 {{ $project->name }}
@@ -102,6 +103,7 @@
                                                                             </td>
                                                                             <td><input type="time" id="end_time" name="end_time[]">
                                                                             </td>
+                                                                            @endif
                                                                         </tr>
                                                                     @endforeach
                                                                 </tbody>

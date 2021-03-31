@@ -57,6 +57,7 @@ use App\Http\Controllers\ApproveController;
                             <tbody>
                                 @foreach ($attendances as $attendance)
                                     <tr>
+                                        @if($attendance->status_approval == 'waiting')
                                         <td>{{ $attendance->nik }}</td>
                                         <td>{{ $attendance->present }}</td>
                                         <td>{{ $attendance->absent }}</td>
@@ -162,6 +163,8 @@ use App\Http\Controllers\ApproveController;
                                         {{-- @foreach (ApproveController::reject($attendance->nik,$attendance->note) as $manday) --}}
                                         <div class="modal-body">
                                             <label class="form-control-label"
+                                                        for="employeeNIK">NIK : {{ $attendance->nik }}</label><br>
+                                            <label class="form-control-label"
                                                         for="employeeName">Note :</label>
                                             <form method="post" action="/attendance_list/{{ $attendance->id }}" enctype="multipart/form-data">
                                                 {{ csrf_field() }}
@@ -180,6 +183,7 @@ use App\Http\Controllers\ApproveController;
                                 </div>
                             </div>
                             </td>
+                            @endif
                             </tr>
                             @endforeach
                             </tbody>

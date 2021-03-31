@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use App\Project;
 use App\StatusProject;
 
 class ProjectController extends Controller
 {
-    public function index(StatusProject $statusProject)
+    public function index(Project $project)
     {
         $projects = Project::all();
         $statusProjects = StatusProject::all();
         $statusProjects = StatusProject::pluck('status', 'id_status_project');
-        $id_status_project = 2;
-        return view('admin.project.index', compact('projects', 'id_status_project', 'statusProjects'));
+        $id_status_project = 1;
+        $data = DB::table('projects')
+                ->join('status_projects','status_projects.id_status_project','=','projects.status_project_id')
+                ->get();
+        return view('admin.project.index', compact('projects', 'data', 'statusProjects','id_status_project'));
     }
 
     // public function create()
@@ -37,7 +41,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect('/project')->with('status','Project data has been successfully added!');
+        return redirect('/project')->with('success','Project data has been successfully added!');
     }
 
     public function update(Request $request, Project $project)
@@ -56,6 +60,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         Project::destroy($project->id_project);
-        return redirect('/project')->with('status','Project data has been deleted!');
+        return redirect('/project')->with('success','Project data has been deleted!');
     }
 }
